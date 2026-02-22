@@ -1,1 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About the Founder | Zayra</title>
+  <link rel="icon" href="ZAYRA Logo.jpeg">
+  <style>
+    :root {
+      --gold: #C5A059;
+      --obsidian: #050505;
+      --silver: #E1E1E1;
+    }
 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+      background-color: var(--obsidian);
+      color: var(--silver);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 20px 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(10px);
+      background: rgba(5, 5, 5, 0.9);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .logo-text {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    nav a {
+      margin-left: 40px;
+      font-size: 14px;
+      opacity: 0.8;
+      color: var(--silver);
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+
+    nav a:hover { opacity: 1; }
+
+    .about-section {
+      min-height: 100vh;
+      padding: 120px 80px 80px;
+      display: grid;
+      grid-template-columns: 400px 1fr;
+      gap: 80px;
+      align-items: start;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .founder-image {
+      position: sticky;
+      top: 140px;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 2px solid var(--gold);
+      box-shadow: 0 20px 60px rgba(197, 160, 89, 0.2);
+    }
+
+    .founder-image img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .founder-content h1 {
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .founder-title {
+      font-size: 20px;
+      color: var(--gold);
+      opacity: 0.7;
+      margin-bottom: 40px;
+      font-weight: 500;
+    }
+
+    .bio-section {
+      margin-bottom: 40px;
+    }
+
+    .bio-section h2 {
+      font-size: 24px;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .bio-section p {
+      font-size: 16px;
+      line-height: 1.8;
+      opacity: 0.85;
+      margin-bottom: 20px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin: 60px 0;
+      padding: 40px;
+      background: rgba(197, 160, 89, 0.05);
+      border-radius: 16px;
+      border: 1px solid rgba(197, 160, 89, 0.1);
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      opacity: 0.7;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 40px;
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 16px;
+      transition: opacity 0.3s;
+    }
+
+    .back-link:hover { opacity: 0.7; }
+
+    @media (max-width: 1024px) {
+      .about-section {
+        grid-template-columns: 1fr;
+        padding: 140px 40px 60px;
+      }
+      nav { padding: 20px 40px; }
+      .founder-image { position: relative; top: 0; }
+      .stats { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo-container">
+      <img src="ZAYRA Logo.jpeg" alt="Zayra" class="logo-img">
+      <div class="logo-text">Zayra</div>
+    </div>
+    <div>
+      <a href="index.html#technology">Intelligence</a>
+      <a href="#visionary">Visionary</a>
+      <a href="index.html#alyna">Alyna</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="about-section">
+    <div class="founder-image">
+      <img src="My Photo.jpeg" alt="Founder of Zayra">
+    </div>
+
+    <div class="founder-content">
+      <h1>The Visionary</h1>
+      <p class="founder-title">Founder & CEO, Zayra</p>
+
+      <div class="bio-section">
+        <h2>The Journey</h2>
+        <p>Built from an unwavering vision to democratize cardiac care, Zayra represents the convergence of cutting-edge AI, medical-grade hardware, and a deep understanding of India's healthcare challenges.</p>
+        <p>With a background spanning machine learning, biomedical engineering, and entrepreneurship, the mission is clear: to make world-class cardiac monitoring accessible to every Indian, from soldiers on the frontline to workers in factories, from executives in boardrooms to families in rural villages.</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-number">AI-First</span>
+          <span class="stat-label">Deep Learning Architecture</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">Made in India</span>
+          <span class="stat-label">For the World</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">24/7</span>
+          <span class="stat-label">Continuous Monitoring</span>
+        </div>
+      </div>
+
+      <div class="bio-section">
+        <h2>The Mission</h2>
+        <p>Heart disease is the silent killer — often striking without warning. Traditional methods rely on intermittent snapshots, missing the crucial early signals that precede cardiac events.</p>
+        <p>Zayra's AI-powered patch changes that paradigm entirely. By continuously learning your heart's unique electrical signature, it predicts risk trajectories before they become crises. This isn't just monitoring — it's prevention reimagined.</p>
+        <p>Every heartbeat tells a story. Zayra listens, learns, and protects.</p>
+      </div>
+
+      <div class="bio-section">
+        <h2>Why Zayra</h2>
+        <p>India faces a cardiac epidemic. Yet access to continuous, intelligent monitoring remains a luxury. Zayra breaks that barrier — delivering hospital-grade intelligence in a patch you wear.</p>
+        <p>Built for extreme environments, from high-altitude military operations to intensive industrial work, Zayra doesn't compromise. It's ruggedized, medical-grade, and powered by AI trained on millions of cardiac cycles.</p>
+        <p>This is cardiac intelligence, democratized.</p>
+      </div>
+
+      <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+  </div>
+
+  <audio id="bg-audio" src="WhatsApp Audio 2026-01-16 at 20.53.04.mpeg" autoplay loop>
+    Your browser does not support the audio element.
+  </audio>
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      const audio = document.getElementById('bg-audio');
+      audio.muted = false;
+      audio.volume = 0.5;
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(function() {
+          document.body.addEventListener('click', function() { audio.play(); }, { once: true });
+          document.body.addEventListener('touchstart', function() { audio.play(); }, { once: true });
+          document.body.addEventListener('keydown', function() { audio.play(); }, { once: true });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
