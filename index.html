@@ -3,118 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zayra - AI-Governed ECG Patch for Proactive Cardiac Prevention</title>
+    <title>Zayra | AI-Governed Cardiac Intelligence</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; color: #333; }
-        .hero { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); color: white; text-align: center; padding: 100px 20px; }
-        .hero h1 { font-size: 3em; margin-bottom: 20px; }
-        .hero p { font-size: 1.3em; margin-bottom: 30px; max-width: 600px; margin: 0 auto 30px; }
-        .cta { background: #ef4444; color: white; padding: 15px 30px; font-size: 1.2em; border: none; border-radius: 50px; cursor: pointer; text-decoration: none; display: inline-block; }
-        section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
-        h2 { font-size: 2.5em; text-align: center; margin-bottom: 40px; color: #1e3a8a; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; }
-        form { max-width: 500px; margin: 0 auto; display: grid; gap: 20px; }
-        input, textarea, button { padding: 15px; font-size: 1em; border: 1px solid #ddd; border-radius: 8px; }
-        button { background: #3b82f6; color: white; border: none; cursor: pointer; font-weight: bold; }
-        footer { background: #1f2937; color: white; text-align: center; padding: 30px; }
-        @media (max-width: 768px) { .hero h1 { font-size: 2em; } }
+        :root {
+            --primary-blue: #1E5AA8;
+            --primary-teal: #40E0D0;
+            --dark-blue: #102A43;
+            --white: #FFFFFF;
+            --bg-light: #F8FAFC;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+        
+        body { background: var(--bg-light); color: var(--dark-blue); overflow-x: hidden; line-height: 1.6; }
+
+        /* Suspenseful Hero Section */
+        .hero {
+            height: 100vh;
+            background: radial-gradient(circle at center, #1E5AA8 0%, #081224 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            padding: 20px;
+        }
+
+        .logo-container img {
+            width: 180px;
+            animation: pulse 3s infinite ease-in-out;
+            margin-bottom: 20px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); filter: drop-shadow(0 0 10px var(--primary-teal)); }
+            50% { transform: scale(1.05); filter: drop-shadow(0 0 30px var(--primary-teal)); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 10px var(--primary-teal)); }
+        }
+
+        .hero h1 { font-size: 3.5rem; letter-spacing: 4px; margin-bottom: 20px; opacity: 0; animation: fadeIn 2s forwards 0.5s; }
+        .hero p { font-size: 1.4rem; max-width: 700px; opacity: 0; animation: fadeIn 2s forwards 1s; color: var(--primary-teal); font-weight: 500; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* CTAs */
+        .cta-container { margin-top: 40px; display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; opacity: 0; animation: fadeIn 2s forwards 1.5s; }
+        .btn { padding: 15px 35px; border-radius: 50px; font-weight: bold; text-decoration: none; transition: 0.3s; text-transform: uppercase; font-size: 0.9rem; border: 2px solid transparent; cursor: pointer; }
+        .btn-primary { background: var(--primary-teal); color: var(--dark-blue); }
+        .btn-primary:hover { transform: scale(1.05); background: var(--white); color: var(--primary-blue); }
+        .btn-outline { border: 2px solid var(--primary-teal); color: var(--white); }
+        .btn-outline:hover { background: var(--primary-teal); color: var(--dark-blue); }
+
+        /* Sections */
+        section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
+        h2 { font-size: 2.5rem; margin-bottom: 50px; color: var(--primary-blue); }
+
+        .vision-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .card { background: var(--white); padding: 40px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); transition: 0.3s; border-top: 5px solid var(--primary-teal); }
+        .card:hover { transform: translateY(-10px); }
+        .card i { font-size: 3rem; color: var(--primary-blue); margin-bottom: 20px; }
+
+        /* Footer */
+        footer { background: var(--dark-blue); color: var(--white); padding: 60px 20px; text-align: center; }
+        .social-links { margin: 30px 0; display: flex; justify-content: center; gap: 25px; }
+        .social-links a { color: var(--primary-teal); font-size: 1.8rem; transition: 0.3s; }
+        .social-links a:hover { color: var(--white); transform: scale(1.2); }
+        
+        .footer-info { margin-top: 40px; font-size: 0.9rem; opacity: 0.8; }
+
+        /* FAQ */
+        .faq-item { text-align: left; max-width: 800px; margin: 0 auto 20px; background: #fff; padding: 20px; border-radius: 10px; }
+        .faq-item h3 { color: var(--primary-blue); margin-bottom: 10px; font-size: 1.1rem; }
+
+        /* Suspense Loading Overlay */
+        #loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #081224; display: flex; justify-content: center; align-items: center; z-index: 9999; }
+        .heartbeat { width: 100px; height: 100px; border-radius: 50%; border: 4px solid var(--primary-teal); animation: heart 1.5s infinite; }
+        @keyframes heart { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0; } 100% { transform: scale(1); opacity: 0; } }
+
     </style>
 </head>
-<body>
-    <section class="hero">
-        <h1>Zayra</h1>
-        <p>AI‑governed ECG chest patch for proactive cardiac prevention. Predict risks 24‑48 hours early. For individuals, hospitals, and defence forces.</p>
-        <a href="#contact" class="cta">Join Early Access</a>
-    </section>
+<body onload="setTimeout(() => document.getElementById('loader').style.display='none', 2000)">
 
-    <section id="problem">
-        <h2>The Problem</h2>
-        <div class="grid">
+    <div id="loader"><div class="heartbeat"></div></div>
+
+    <header class="hero">
+        <div class="logo-container">
+            <img src="ZAYRA-Logo.jpg" alt="Zayra Logo">
+        </div>
+        <h1>ZAYRA</h1>
+        <p>REDEFINING CARDIAC CARE: FROM REACTIVE TO PROACTIVE</p>
+        <p style="font-size: 1rem; color: #fff; margin-top: 10px; opacity: 0.7;">INDIAN PATENT PROTECTED • AI-GOVERNED SURVEILLANCE</p>
+        
+        <div class="cta-container">
+            <a href="#early-access" class="btn btn-primary">Join Early Access</a>
+            <a href="#partner" class="btn btn-outline">Partner With Us</a>
+            <a href="mailto:founder@zayra.co.in" class="btn btn-outline">Contact Us</a>
+        </div>
+    </header>
+
+    <section id="vision">
+        <h2>The Vision</h2>
+        <div class="vision-grid">
             <div class="card">
-                <h3>India's Silent Killer</h3>
-                <p>2M+ deaths/year from MI. Current monitors detect events <em>after</em> they start.</p>
+                <i class="fas fa-microchip"></i>
+                <h3>AI-Governed Intelligence</h3>
+                <p>Governed interpretation of multi-parameter physiological data, predicting risks 24-48 hours early.</p>
             </div>
             <div class="card">
-                <h3>Reactive Care</h3>
-                <p>Hospitals overwhelmed. Defence needs continuous monitoring without false alarms.</p>
+                <i class="fas fa-shield-heart"></i>
+                <h3>No Silent Failures</h3>
+                <p>Translating the heart's hidden story into timely action. Shifting from reactive rush to proactive rescue.</p>
             </div>
             <div class="card">
-                <h3>Missed Prevention</h3>
-                <p>No AI that governs multi‑parameter data for true risk prediction.</p>
+                <i class="fas fa-globe"></i>
+                <h3>Global Standard</h3>
+                <p>Starting in India, then everywhere heart disease steals life too early. Adopting a new early-warning culture.</p>
             </div>
         </div>
     </section>
 
-    <section id="solution" style="background: #f8fafc;">
-        <h2>Our Solution</h2>
-        <div class="grid">
+    <section id="status" style="background: #fff;">
+        <h2>Clinical Impact</h2>
+        <div class="vision-grid">
             <div class="card">
-                <h3>Wearable ECG Patch</h3>
-                <p>Chest patch with continuous monitoring. Comfortable 24/7 wear.</p>
+                <h3>1D CNN Benchmark</h3>
+                <p>Architecture validated. AI engine trained on raw 12-lead waveforms achieving literature-aligned performance.</p>
+                <p style="color: var(--primary-teal); font-weight: bold; font-size: 1.5rem; margin-top: 10px;">0.924 AUC</p>
             </div>
             <div class="card">
-                <h3>Governed AI</h3>
-                <p>Patent‑pending system interprets ECG + multi‑parameters reliably. (Indian Patent 202631004542)</p>
-            </div>
-            <div class="card">
-                <h3>Subscription Platform</h3>
-                <p>₹499‑999/month. Alerts, baselines, clinician dashboards.</p>
+                <h3>Trials in Progress</h3>
+                <p>Real-world validation underway with institutional partners to build an early-warning standard.</p>
             </div>
         </div>
     </section>
 
-    <section id="who">
-        <h2>For Whom</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Individuals</h3>
-                <p>High‑risk families. Family sharing features.</p>
-            </div>
-            <div class="card">
-                <h3>Hospitals</h3>
-                <p>Remote monitoring. Reduce readmissions.</p>
-            </div>
-            <div class="card">
-                <h3>Defence Forces</h3>
-                <p>Field deployment. Zayra Evac for emergencies.</p>
-            </div>
+    <section id="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <h3>Is Zayra just another wearable?</h3>
+            <p>No. Zayra is an AI-governed surveillance standard. It continuously interprets multi-modal signals as a living signal, not isolated noisy data points.</p>
         </div>
-    </section>
-
-    <section id="company" style="background: #f8fafc;">
-        <h2>Zayra India Pvt Ltd</h2>
-        <p style="text-align: center; font-size: 1.2em; max-width: 800px; margin: 0 auto;">
-            Health‑technology company developing wearable ECG patch and cloud platform for continuous cardiac monitoring and AI analysis. 
-            Founded by Roslyn Singh Ahluwalia. Proof‑of‑concept achieved. Scaling for IPO trajectory.
-        </p>
-    </section>
-
-    <section id="contact">
-        <h2>Get in Touch</h2>
-        <form id="contactForm">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <input type="tel" placeholder="Your Phone">
-            <textarea placeholder="Message (e.g. Early access, Partnership, Investment)" rows="5" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
+        <div class="faq-item">
+            <h3>How early can it predict risks?</h3>
+            <p>Our proprietary AI layer is designed to provide intelligent early-warning detection for cardiac risk up to 24-48 hours before an event.</p>
+        </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Zayra India Pvt Ltd. All rights reserved. | 
-        <a href="#privacy" style="color: #93c5fd;">Privacy Policy</a> | 
-        <a href="#terms" style="color: #93c5fd;">Terms</a> | 
-        Not medical advice – consult a doctor for health concerns.</p>
+        <div class="logo-container">
+            <img src="ZAYRA-Logo.jpg" alt="Zayra Logo" style="width: 100px;">
+        </div>
+        <h3>Roslyn Singh Ahluwalia</h3>
+        <p>Founder & CEO, Zayra Labs</p>
+        
+        <div class="social-links">
+            <a href="https://www.linkedin.com/company/zayra-labs" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/zayra.labs" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:founder@zayra.co.in"><i class="fas fa-envelope"></i></a>
+        </div>
+
+        <p>Ahilyanagar, Maharashtra, India</p>
+        <p>Phone: +91 9156050610</p>
+        
+        <div class="footer-info">
+            &copy; 2026 Zayra India Private Limited. All Rights Reserved.<br>
+            Indian Patent Protected.
+        </div>
     </footer>
 
-    <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you! Your message sent to Zayra team. We\'ll reply within 24 hours.');
-            this.reset();
-        });
-    </script>
 </body>
 </html>
