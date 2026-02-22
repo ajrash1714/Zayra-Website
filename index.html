@@ -290,5 +290,33 @@
     <audio id="bg-audio" src="WhatsApp Audio 2026-01-16 at 20.53.04.mpeg" autoplay loop>
     Your browser does not support the audio element.
   </audio>
+    <script>
+    // Force audio to play immediately
+    window.addEventListener('DOMContentLoaded', function() {
+      const audio = document.getElementById('bg-audio');
+      audio.muted = false;
+      audio.volume = 0.5;
+      
+      // Try to play immediately
+      const playPromise = audio.play();
+      
+      if (playPromise !== undefined) {
+        playPromise.catch(function() {
+          // Autoplay was prevented, play on any user interaction
+          document.body.addEventListener('click', function() {
+            audio.play();
+          }, { once: true });
+          
+          document.body.addEventListener('touchstart', function() {
+            audio.play();
+          }, { once: true });
+          
+          document.body.addEventListener('keydown', function() {
+            audio.play();
+          }, { once: true });
+        });
+      }
+    });
+  </script>
 </body>
 </html>
