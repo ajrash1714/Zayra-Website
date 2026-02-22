@@ -1,389 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Zayra | Cardiac AI Founder</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #1a1a1a;
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-            line-height: 1.6;
-        }
-
-        /* Aurora Animation Background */
-        @keyframes aurora {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .aurora-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(0, 150, 255, 0.05), rgba(100, 200, 255, 0.05), rgba(0, 200, 200, 0.05), rgba(0, 150, 255, 0.05));
-            background-size: 400% 400%;
-            animation: aurora 15s ease infinite;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        header {
-            padding: 1.5rem 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            position: relative;
-            z-index: 10;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #0066cc;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo img {
-            width: 40px;
-            height: 40px;
-            object-fit: contain;
-        }
-
-        nav {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            margin-top: 1rem;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: #333;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            font-size: 0.95rem;
-        }
-
-        nav a:hover {
-            color: #0066cc;
-        }
-
-        .hero-section {
-            padding: 4rem 0;
-            text-align: center;
-            position: relative;
-        }
-
-        .founder-card {
-            max-width: 800px;
-            margin: 3rem auto;
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .founder-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 50px rgba(0, 102, 204, 0.15);
-        }
-
-        .founder-image {
-            width: 100%;
-            height: 400px;
-            overflow: hidden;
-            background: linear-gradient(135deg, #0066cc, #00d4ff);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .founder-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .founder-info {
-            padding: 3rem;
-            text-align: center;
-        }
-
-        .founder-info h2 {
-            font-size: 2rem;
-            color: #0066cc;
-            margin-bottom: 0.5rem;
-        }
-
-        .title {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-        }
-
-        .story {
-            font-size: 1rem;
-            color: #555;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-            text-align: left;
-        }
-
-        .vision-box {
-            background: linear-gradient(135deg, rgba(0, 102, 204, 0.1), rgba(0, 212, 255, 0.1));
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-            border-left: 4px solid #0066cc;
-        }
-
-        .vision-box h3 {
-            color: #0066cc;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .vision-box p {
-            color: #555;
-            line-height: 1.8;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .stat-item {
-            background: rgba(0, 102, 204, 0.05);
-            padding: 1.5rem;
-            border-radius: 10px;
-            border: 1px solid rgba(0, 102, 204, 0.2);
-        }
-
-        .stat-number {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #0066cc;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, #0066cc, #0052a3);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            margin-top: 1.5rem;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 102, 204, 0.4);
-            background: linear-gradient(135deg, #0052a3, #003d7a);
-        }
-
-        .cta-button.secondary {
-            background: white;
-            color: #0066cc;
-            border: 2px solid #0066cc;
-            margin-left: 1rem;
-        }
-
-        .cta-button.secondary:hover {
-            background: #f0f5ff;
-        }
-
-        footer {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 2rem 0;
-            text-align: center;
-            color: #666;
-            margin-top: 4rem;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-            position: relative;
-            z-index: 10;
-        }
-
-        .social-links {
-            margin-bottom: 1rem;
-        }
-
-        .social-links a {
-            color: #0066cc;
-            margin: 0 1rem;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: #0052a3;
-        }
-
-        @media (max-width: 768px) {
-            .stats {
-                grid-template-columns: 1fr;
-            }
-
-            .founder-info {
-                padding: 2rem;
-            }
-
-            .founder-image {
-                height: 300px;
-            }
-
-            .cta-button.secondary {
-                display: block;
-                margin-left: 0;
-                margin-top: 1rem;
-            }
-
-            h1 { font-size: 1.8rem; }
-            h2 { font-size: 1.5rem; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Founder – Zayra</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+      background: radial-gradient(circle at top, #050816 0, #02020b 40%, #000000 100%);
+      color: #f5f5f7;
+    }
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 60px;
+      backdrop-filter: blur(20px);
+      background: linear-gradient(90deg, rgba(0,0,0,0.85), rgba(0,0,0,0.65));
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav a {
+      color: #f5f5f7;
+      text-decoration: none;
+      margin-left: 28px;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+    .nav a:hover { opacity: 1; }
+    .logo-small {
+      height: 40px;
+      border-radius: 14px;
+      box-shadow:
+        0 12px 24px rgba(0,0,0,0.6),
+        inset 0 0 0 1px rgba(255,255,255,0.25);
+    }
+    .hero {
+      padding: 140px 60px 60px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 60px;
+      align-items: center;
+    }
+    .hero-photo-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+    .hero-photo {
+      width: 260px;
+      height: 260px;
+      border-radius: 32px;
+      object-fit: cover;
+      box-shadow:
+        0 32px 80px rgba(0,0,0,0.8),
+        0 -3px 8px rgba(255,255,255,0.25),
+        inset 0 0 0 1px rgba(255,255,255,0.3);
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.25);
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0.9;
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-size: 38px;
+      line-height: 1.1;
+      margin: 0 0 14px;
+    }
+    .subtitle {
+      font-size: 18px;
+      max-width: 520px;
+      opacity: 0.9;
+    }
+    .section {
+      padding: 20px 60px 60px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .section-title {
+      font-size: 20px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 12px;
+    }
+    .card {
+      border-radius: 24px;
+      padding: 24px 26px;
+      background: radial-gradient(circle at top left, rgba(80,255,255,0.18), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(120,180,255,0.16), transparent 55%),
+                  rgba(5,5,16,0.9);
+      border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: 0 22px 60px rgba(0,0,0,0.7);
+    }
+    .two-column {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 26px;
+      margin-top: 18px;
+    }
+    .tagline {
+      font-size: 15px;
+      opacity: 0.9;
+    }
+    .footer {
+      padding: 30px 60px 40px;
+      font-size: 13px;
+      opacity: 0.75;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 60px;
+    }
+    a.cta {
+      display: inline-flex;
+      align-items: center;
+      margin-right: 18px;
+      margin-top: 16px;
+      font-size: 14px;
+      text-decoration: none;
+      color: #61dafb;
+      opacity: 0.9;
+    }
+    a.cta span {
+      margin-left: 6px;
+      font-size: 16px;
+    }
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 120px 24px 40px;
+      }
+      .section {
+        padding: 10px 24px 40px;
+      }
+      .nav {
+        padding: 12px 18px;
+      }
+      .nav a {
+        margin-left: 14px;
+      }
+      .hero-photo {
+        width: 220px;
+        height: 220px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="aurora-bg"></div>
+  <header class="nav">
+    <a href="index.html">
+      <img src="ZAYRA Logo.jpeg" alt="Zayra Logo" class="logo-small">
+    </a>
+    <nav>
+      <a href="index.html#technology">Technology</a>
+      <a href="about.html">Founder</a>
+      <a href="index.html#partner">Partner With Us</a>
+      <a href="index.html#contact">Contact Us</a>
+    </nav>
+  </header>
 
-    <header>
-        <div class="container">
-            <a href="index.html" class="logo">
-                <img src="ZAYRA-Logo.jpeg" alt="Zayra Logo">
-                Zayra
-            </a>
-            <nav>
-                <a href="index.html#vision">Vision</a>
-                <a href="index.html#impact">Clinical Impact</a>
-                <a href="index.html#faq">FAQ</a>
-                <a href="about.html">Founder</a>
-            </nav>
-        </div>
-    </header>
-
-    <section class="hero-section">
-        <div class="container">
-            <h1 style="font-size: 3rem; color: #0066cc; margin-bottom: 1rem;">Meet the Founder</h1>
-            <p style="font-size: 1.2rem; color: #666; margin-bottom: 2rem;">Pioneering the future of cardiac health monitoring</p>
-
-            <div class="founder-card">
-                <div class="founder-image">
-                    <img src="My Photo.jpeg" alt="Founder">
-                </div>
-                <div class="founder-info">
-                    <h2>Aditya Raj</h2>
-                    <div class="title">Founder & CEO, Zayra</div>
-
-                    <div class="story">
-                        <p><strong>Driving Innovation in Cardiac Care</strong></p>
-                        <p style="margin-top: 1rem;">Aditya Raj is a visionary healthcare technology entrepreneur focused on democratizing cardiac health monitoring through AI-powered wearable solutions. With deep expertise in machine learning, ECG signal processing, and medical device development, Aditya founded Zayra with a mission to make advanced cardiac diagnostics accessible to everyone.</p>
-
-                        <p style="margin-top: 1rem;"><strong>Background:</strong> A skilled ML engineer with experience in deep learning CNN architectures, Aditya has trained models on clinical ECG datasets (PTB-XL) achieving state-of-the-art performance. His technical foundation combines signal processing expertise with real-world medical device validation.</p>
-
-                        <p style="margin-top: 1rem;"><strong>Vision:</strong> To bridge the gap between hospital-grade diagnostics and personal health monitoring, enabling early detection of cardiac anomalies and saving lives through continuous, non-invasive monitoring.</p>
-                    </div>
-
-                    <div class="vision-box">
-                        <h3>🎯 Our Mission</h3>
-                        <p>Transform cardiac health monitoring from reactive hospital care to proactive, continuous personal health management using AI and wearable technology.</p>
-                    </div>
-
-                    <div class="vision-box">
-                        <h3>🔬 Research Focus</h3>
-                        <p>Advanced ECG signal analysis, multi-sensor fusion for cardiac arrhythmia detection, and development of clinic-grade accuracy in wearable form factor.</p>
-                    </div>
-
-                    <div class="stats">
-                        <div class="stat-item">
-                            <div class="stat-number">0.924</div>
-                            <div class="stat-label">Model AUC Performance</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">2026</div>
-                            <div class="stat-label">Founded</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">🇮🇳</div>
-                            <div class="stat-label">Patent Protected</div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <button class="cta-button" onclick="smoothScroll('contact')">Partner With Us</button>
-                        <button class="cta-button secondary" onclick="window.location.href='index.html'">Back to Home</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <main>
+    <section class="hero">
+      <div>
+        <div class="pill">Founder & Vision</div>
+        <h1>Roslyn Singh Ahluwalia</h1>
+        <p class="subtitle">
+          Founder & CEO of Zayra India Pvt Ltd, building an AI‑governed cardiac intelligence platform from India with a mission to prevent sudden cardiac deaths around the world.
+        </p>
+        <a class="cta" href="https://www.linkedin.com/in/roslyn-singh-ahluwalia-5822b23b1" target="_blank" rel="noopener">
+          View LinkedIn Profile <span>↗</span>
+        </a>
+      </div>
+      <div class="hero-photo-wrapper">
+        <img src="My Photo.jpeg" alt="Roslyn Singh Ahluwalia" class="hero-photo">
+      </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="https://instagram.com/zayra.labs" target="_blank">Instagram</a>
-                <a href="mailto:contact@zayra.co.in">Email</a>
-            </div>
-            <p>&copy; 2026 Zayra. All rights reserved. | Indian Patent Protected</p>
+    <section class="section">
+      <div class="section-title">About Me</div>
+      <div class="card">
+        <p class="tagline">
+          I am a healthcare founder, mother of two, and former government school teacher who chose to solve one of the hardest problems in cardiology: catching life‑threatening events before they strike.
+        </p>
+        <p>
+          After a decade inside India’s public system, I saw how late diagnosis, limited monitoring, and unequal access leave families exposed to preventable cardiac tragedies. Zayra was born from that lived experience – a decision to build an AI‑enabled ECG skin patch that can live quietly on the chest, continuously listen to the heart, and raise the alarm when it truly matters.
+        </p>
+        <p>
+          As Founder & CEO of Zayra India Pvt Ltd, I am leading the journey from patent to product: integrating medical‑grade ECG sensing, flexible electronics, cloud AI, and clinical workflows into a single, elegant wearable that fits into daily life.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">Vision for Zayra</div>
+      <div class="two-column">
+        <div class="card">
+          <h3>From device to intelligence network</h3>
+          <p>
+            Zayra is not just a patch – it is the foundation of a continuous cardiac intelligence network. Each heartbeat becomes structured data, feeding AI models that can detect subtle deterioration, dangerous arrhythmias, and early warning signs of myocardial infarction.
+          </p>
+          <p>
+            My vision is a world where every high‑risk patient, every cardiac survivor, and every silent high‑risk profile can be protected by an invisible safety net of predictive monitoring – starting in India and scaling globally.
+          </p>
         </div>
-    </footer>
+        <div class="card">
+          <h3>Building a global healthtech brand</h3>
+          <p>
+            I am building Zayra as a clinically serious, design‑obsessed, and globally relevant company. That means deep partnerships with cardiologists and hospitals, regulatory‑grade science, and a product experience that feels as refined as the world’s best consumer technology.
+          </p>
+          <p>
+            The ambition is clear: Zayra should stand among the most valuable healthtech brands of this decade, measured not only in valuation, but in the number of sudden cardiac deaths we help prevent.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <script>
-        function smoothScroll(elementId) {
-            const element = document.getElementById(elementId);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-    </script>
+  <footer class="footer">
+    © Zayra India Pvt Ltd. All rights reserved.
+  </footer>
 </body>
 </html>
