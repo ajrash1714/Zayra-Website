@@ -16,12 +16,57 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
         
-        body { background: var(--bg-light); color: var(--dark-blue); overflow-x: hidden; line-height: 1.6; }
+        html { scroll-behavior: smooth; }
+        
+        body { background: var(--bg-light); color: var(--dark-blue); overflow-x: hidden; line-height: 1.6; position: relative; }
+
+        /* Aurora Background Animation */
+        .aurora-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #1E5AA8 0%, #081224 50%, #102A43 100%);
+            overflow: hidden;
+        }
+
+        .aurora-bg::before,
+        .aurora-bg::after {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            opacity: 0.3;
+            animation: aurora 15s infinite ease-in-out;
+        }
+
+        .aurora-bg::before {
+            background: radial-gradient(ellipse at center, rgba(64, 224, 208, 0.4) 0%, transparent 50%);
+            animation-delay: 0s;
+            top: -50%;
+            left: -50%;
+        }
+
+        .aurora-bg::after {
+            background: radial-gradient(ellipse at center, rgba(30, 90, 168, 0.4) 0%, transparent 50%);
+            animation-delay: 7s;
+            bottom: -50%;
+            right: -50%;
+        }
+
+        @keyframes aurora {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(10%, 10%) rotate(90deg); }
+            50% { transform: translate(-10%, 5%) rotate(180deg); }
+            75% { transform: translate(5%, -10%) rotate(270deg); }
+        }
 
         /* Suspenseful Hero Section */
         .hero {
             height: 100vh;
-            background: radial-gradient(circle at center, #1E5AA8 0%, #081224 100%);
+            background: transparent;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -51,10 +96,10 @@
 
         /* CTAs */
         .cta-container { margin-top: 40px; display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; opacity: 0; animation: fadeIn 2s forwards 1.5s; }
-        .btn { padding: 15px 35px; border-radius: 50px; font-weight: bold; text-decoration: none; transition: 0.3s; text-transform: uppercase; font-size: 0.9rem; border: 2px solid transparent; cursor: pointer; }
+        .btn { padding: 15px 35px; border-radius: 50px; font-weight: bold; text-decoration: none; transition: 0.3s; text-transform: uppercase; font-size: 0.9rem; border: 2px solid transparent; cursor: pointer; display: inline-block; }
         .btn-primary { background: var(--primary-teal); color: var(--dark-blue); }
         .btn-primary:hover { transform: scale(1.05); background: var(--white); color: var(--primary-blue); }
-        .btn-outline { border: 2px solid var(--primary-teal); color: var(--white); }
+        .btn-outline { border: 2px solid var(--primary-teal); color: var(--white); background: transparent; }
         .btn-outline:hover { background: var(--primary-teal); color: var(--dark-blue); }
 
         /* Sections */
@@ -82,24 +127,23 @@
         #loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #081224; display: flex; justify-content: center; align-items: center; z-index: 9999; }
         .heartbeat { width: 100px; height: 100px; border-radius: 50%; border: 4px solid var(--primary-teal); animation: heart 1.5s infinite; }
         @keyframes heart { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0; } 100% { transform: scale(1); opacity: 0; } }
-
     </style>
 </head>
 <body onload="setTimeout(() => document.getElementById('loader').style.display='none', 2000)">
-
+    <div class="aurora-bg"></div>
     <div id="loader"><div class="heartbeat"></div></div>
 
     <header class="hero">
         <div class="logo-container">
-            <img src="ZAYRA-Logo.jpg" alt="Zayra Logo">
+            <img src="ZAYRA-Logo.jpeg" alt="Zayra Logo" onerror="this.style.display='none'">
         </div>
         <h1>ZAYRA</h1>
         <p>REDEFINING CARDIAC CARE: FROM REACTIVE TO PROACTIVE</p>
         <p style="font-size: 1rem; color: #fff; margin-top: 10px; opacity: 0.7;">INDIAN PATENT PROTECTED • AI-GOVERNED SURVEILLANCE</p>
         
         <div class="cta-container">
-            <a href="#early-access" class="btn btn-primary">Join Early Access</a>
-            <a href="#partner" class="btn btn-outline">Partner With Us</a>
+            <a href="#vision" class="btn btn-primary">Join Early Access</a>
+            <a href="#status" class="btn btn-outline">Partner With Us</a>
             <a href="mailto:founder@zayra.co.in" class="btn btn-outline">Contact Us</a>
         </div>
     </header>
@@ -154,7 +198,7 @@
 
     <footer>
         <div class="logo-container">
-            <img src="ZAYRA-Logo.jpg" alt="Zayra Logo" style="width: 100px;">
+            <img src="ZAYRA-Logo.jpeg" alt="Zayra Logo" style="width: 100px;" onerror="this.style.display='none'">
         </div>
         <h3>Roslyn Singh Ahluwalia</h3>
         <p>Founder & CEO, Zayra Labs</p>
@@ -169,10 +213,9 @@
         <p>Phone: +91 9156050610</p>
         
         <div class="footer-info">
-            &copy; 2026 Zayra India Private Limited. All Rights Reserved.<br>
+            © 2026 Zayra India Private Limited. All Rights Reserved.<br>
             Indian Patent Protected.
         </div>
     </footer>
-
 </body>
 </html>
